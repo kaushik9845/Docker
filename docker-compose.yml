@@ -1,11 +1,6 @@
 --- 
 services: 
   db: 
-    adminer: 
-      image: adminer
-      ports: 
-        - "8080:8080"
-      restart: always
     environment: 
       POSTGRES_PAASSWORD: postgressecret
     image: postgres
