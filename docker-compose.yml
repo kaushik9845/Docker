@@ -2,7 +2,7 @@
 services: 
   db: 
     environment: 
-      POSTGRES_PAASSWORD: postgressecret
+      POSTGRES_PASSWORD: postgressecret
     image: postgres
     restart: always
 version: "3.1"
