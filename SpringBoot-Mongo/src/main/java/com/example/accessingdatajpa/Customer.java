@@ -1,8 +1,9 @@
 package com.example.accessingdatajpa;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document
 public class Customer {
 
 	@Id
@@ -24,7 +25,7 @@ public class Customer {
 				id, firstName, lastName);
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
