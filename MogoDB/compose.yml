@@ -4,7 +4,7 @@ services:
     environment: 
       MONGO_INITDB_ROOT_PASSWORD: admin
       MONGO_INITDB_ROOT_USERNAME: root
-    image: mongo
+    image: mongo:4.4.12-focal
     restart: always
   mongo-express:
     depends_on: 
