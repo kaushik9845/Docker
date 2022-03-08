@@ -1,8 +1,25 @@
 --- 
-services: 
-  db: 
+services:
+  springboot: 
+    image: springbootmongo:001
+    restart: always
+    depends_on: 
+      - mongo
+  mongo: 
     environment: 
-      POSTGRES_PASSWORD: postgressecret
-    image: postgres
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_ROOT_USERNAME: root
+    image: mongo:4.4.12-focal
+    restart: always
+  mongo-express:
+    depends_on: 
+      - mongo
+    environment: 
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_URL: "mongodb://root:admin@mongo:27017/"
+    image: mongo-express
+    ports: 
+      - "8081:8081"
     restart: always
 version: "3.1"
